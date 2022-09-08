@@ -1,0 +1,23 @@
+h1 {
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+span {
+    color: rgb(0, 0, 255);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-black-1);
+    font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+    a {
+        cursor: pointer;
+        color: blue;
+    }
+}
