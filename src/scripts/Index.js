@@ -1,7 +1,7 @@
 import { Modal } from "./Modal.js"
-// import { Requests } from "./requests.js"
+import { Requests } from "./Requests.js"
 
-class Index {
+export default class Index {
     // static renderIndex() {
     //     const token = localStorage.getItem("@kenzieSocial:token")
 
@@ -144,7 +144,8 @@ class Index {
     static listCompanies (array) {
         const ul = document.querySelector(".container__companies")
 
-        const data = array.results
+        console.log(array)
+        const data = array
 
         ul.innerText = ""
 
@@ -164,8 +165,9 @@ class Index {
 
         h4TitleCompanies.innerText = company.name 
         spanCompaniesDescrip.innerText = company.description
-        spanCompaniesSector.innerText = company.sectores.description
-
+        spanCompaniesSector.innerText = `Setor: ${company.sectors.description}`
+        spanCompaniesSector.classList.add("spanDescription")
+        
         li.append(h4TitleCompanies, spanCompaniesDescrip, spanCompaniesSector)
 
         return li
@@ -174,3 +176,6 @@ class Index {
 
 Index.handleLoginModal()
 Index.handleSignupModal()
+
+const companies = await Requests.getAllCompanies()
+Index.listCompanies(companies)

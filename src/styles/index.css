@@ -1,6 +1,5 @@
 body {
     width: 100vw;
-    height: 100vh;
 }
 
 header {
@@ -27,13 +26,16 @@ nav {
 
 section {
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 ul {
-    height: 40px;
+    width: 90%;
     display: flex;
     overflow-x: auto;
     gap: 20px;
+    margin-bottom: 40px;
 }
 
 ul li {
@@ -42,7 +44,7 @@ ul li {
     padding: 8px;
 }
 
-ul li:hover{
+.container__sectores li:hover{
     color: blue;
 }
 
@@ -54,11 +56,13 @@ ul li:hover{
 }
 
 .container__companies {
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
 }
 
 @media (min-width: 1024px) {
-    
+
     ul {
         justify-content: space-around;
     }   

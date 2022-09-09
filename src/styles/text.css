@@ -27,6 +27,22 @@ a {
     color: var(--color-black-1);
 }
 
+.container__companies h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.container__companies span {
+    display: block;
+    font-size: 0.7rem;
+    margin-bottom: 3px;
+}
+
+.container__companies .spanDescription {
+    color: var(--color-black-1);
+    margin-top: 12px;
+}
+
 @media (min-width: 1024px) {
     a {
         cursor: pointer;
