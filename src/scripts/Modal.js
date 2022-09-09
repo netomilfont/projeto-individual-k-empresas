@@ -54,11 +54,14 @@ export class Modal {
         const inputName = document.createElement("input")
         const inputEmail = document.createElement("input")
         const inputPassword = document.createElement("input")
-        const inputJob = document.createElement("input")
-        const inputImgPefil = document.createElement("input")
+        const inputJob = document.createElement("select")
         const btnRegister = document.createElement("button")
         const spanLogin = document.createElement("span")
         const btnLogin = document.createElement("button")
+        const optionSenior = document.createElement("option")
+        const optionPleno = document.createElement('option')
+        const optionJunior = document.createElement("option")
+        const optionEstagio = document.createElement("option")
     
         divForm.classList.add("divFormSignup")
         h3TitleForm.innerText = "Cadastro"
@@ -73,22 +76,27 @@ export class Modal {
         inputPassword.placeholder = "Sua senha"
         inputPassword.type = "password"
         inputPassword.classList.add("inputPassword")
-        inputJob.placeholder = "Qual o seu trabalho?"
-        inputJob.type = "text"
         inputJob.classList.add("inputJob")
-        inputImgPefil.placeholder = "URL da imagem de perfil"
-        inputImgPefil.type = "url"
-        inputImgPefil.classList.add("inputImg")
+        optionSenior.value = "sênior"
+        optionSenior.innerText = "Senior"
+        optionPleno.value = "pleno"
+        optionPleno.innerText = "Pleno"
+        optionJunior.value = "júnior"
+        optionJunior.innerText = "Junior"
+        optionEstagio.value = "estágio"
+        optionEstagio.innerText = "Estágio"
         btnRegister.innerText = "Registrar"
         btnRegister.type = "submit"
         btnRegister.classList.add("btnLogin")
         spanLogin.innerText = "Já possui login?"
+        spanLogin.classList.add("spanCadastro")
         btnLogin.innerText = "Ir para página de login"
         btnLogin.type = "submit"
         btnLogin.classList.add("btnRegister")
-
+        
+        inputJob.append(optionSenior, optionPleno, optionJunior, optionEstagio)
         divForm.append(h3TitleForm, btnBack)
-        modalForm.append(divForm, inputName, inputEmail, inputPassword, inputJob, inputImgPefil, btnRegister, spanLogin, btnLogin)
+        modalForm.append(divForm, inputName, inputEmail, inputPassword, inputJob, btnRegister, spanLogin, btnLogin)
     
         return modalForm
     } 
