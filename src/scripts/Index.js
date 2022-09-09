@@ -144,7 +144,6 @@ export default class Index {
     static listCompanies (array) {
         const ul = document.querySelector(".container__companies")
 
-        console.log(array)
         const data = array
 
         ul.innerText = ""
@@ -167,10 +166,36 @@ export default class Index {
         spanCompaniesDescrip.innerText = company.description
         spanCompaniesSector.innerText = `Setor: ${company.sectors.description}`
         spanCompaniesSector.classList.add("spanDescription")
-        
+
         li.append(h4TitleCompanies, spanCompaniesDescrip, spanCompaniesSector)
 
         return li
+    }
+
+    static listBySector (array) {
+        const ul = document.querySelector(".container__sectores")
+
+        ul.addEventListener("click", (event) => {
+
+            let btn = event.target
+        
+            if(btn.tagName == "LI" && btn.innerText == "Alimentícias") {
+                const sectorAlimenticias = array.filter(element => element.sectors.description == "Alimenticio")
+                
+                Index.listCompanies(sectorAlimenticias)
+            } else if(btn.tagName == "LI" && btn.innerText == "Automotivo") {
+                const sectorAutomotivas = array.filter(element => element.sectors.description == "Automotiva")
+
+                Index.listCompanies(sectorAutomotivas)
+            } else if(btn.tagName == "LI" && btn.innerText == "TI") {
+                const sectorTI = array.filter(element => element.sectors.description == "TI")
+
+                Index.listCompanies(sectorTI)
+            } else if (btn.tagName == "LI" && btn.innerText == "Todas") {
+
+                Index.listCompanies(array)
+            }
+        })
     }
 }
 
@@ -179,3 +204,5 @@ Index.handleSignupModal()
 
 const companies = await Requests.getAllCompanies()
 Index.listCompanies(companies)
+
+Index.listBySector(companies)
