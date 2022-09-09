@@ -16,8 +16,8 @@ export class Requests {
         const login = await instance
         .post("auth/login", data)
         .then((res) => {
-            localStorage.setItem("@kenzieEmpresa:user_Id", res.data.token)
-            localStorage.setItem("@kenzieEmpresa:token", res.data.uuid)
+            localStorage.setItem("@kenzieEmpresa:user_Id", res.data.uuid)
+            localStorage.setItem("@kenzieEmpresa:token", res.data.token)
 
             Toast.create("Login realizado com sucesso", "#4263EB")
 
@@ -55,5 +55,32 @@ export class Requests {
         })
 
         return signup
+    }
+
+    static async companyUser (token) {
+        const userInfo = await instance
+        .get("users/profile")
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err))
+
+        return userInfo
+    }
+
+    static async employessSameDepartment() {
+        const employees = await instance
+        .get("departments/coworkers")
+        .then((res) => res.data)
+        .catch((err) => console.log(err))
+
+        return employees
+    }
+
+    static async userDepartment() {
+        const department = await instance
+        .get("departments")
+        .then((res) => res.data)
+        .catch((err) => console.log(err))
+
+        return department
     }
 }

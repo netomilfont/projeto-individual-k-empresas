@@ -29,3 +29,27 @@ section {
     margin: 0 auto;
     width: 90%;
 }
+
+.container__companyDepart li {
+    padding: 20px;
+    background-color: rgb(245, 245, 245);
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 1px 3px 1px rgba(0, 0, 0, 0.151);
+}
+
+.container__employees li {
+    padding: 20px;
+    box-shadow: 1px 3px 1px rgba(0, 0, 0, 0.151);
+    margin: 20px 0;
+    background-color: rgb(245, 245, 245);
+    border-radius: 8px;
+}
+
+.container__companyUser  li{
+    padding: 20px;
+    box-shadow: 1px 3px 1px rgba(0, 0, 0, 0.151);
+    margin: 20px 0;
+    background-color: rgb(245, 245, 245);
+    border-radius: 8px;
+}

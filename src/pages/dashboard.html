@@ -12,7 +12,12 @@
     <link rel="stylesheet" href="../styles/button.css">
     <link rel="stylesheet" href="../styles/text.css">
 
-    <title>Document</title>
+    <!--  JS  -->
+    <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" defer src="../scripts/Requests.js"></script>
+    <script type="module" defer src="../scripts/dashboard.js"></script>
+
+    <title>Dashboard: Usuário</title>
 </head>
 <body>
     <header>
@@ -27,15 +32,17 @@
             </div>
         </nav>
     </header>
-    <section class="container__companyUser">
+    <section>
         <h3>Empresa</h3>
+        <ul class="container__companyUser"></ul>
     </section>
-    <section class="container__companyDepart">
-        <h3>Departamento </h3>
+    <section>
+        <h3>Departamentos</h3>
+        <ul class="container__companyDepart"></ul>
     </section>
-    <section class="container__employees">
-        <h3>Funcionários do Departamento</h3>
-        <ul>
+    <section>
+        <h3>Funcionários</h3>
+        <ul class="container__employees">
 
         </ul>
     </section>
