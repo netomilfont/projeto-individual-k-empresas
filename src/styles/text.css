@@ -3,6 +3,12 @@ h1 {
     font-weight: 700;
 }
 
+h3 {
+    color: var(--color-black-1);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
 span {
     color: rgb(0, 0, 255);
     font-size: 1.8rem;
@@ -13,6 +19,12 @@ a {
     text-decoration: none;
     color: var(--color-black-1);
     font-weight: 600;
+}
+
+.spanCadastro {
+    font-size: 0.7rem;
+    text-align: center;
+    color: var(--color-black-1);
 }
 
 @media (min-width: 1024px) {
