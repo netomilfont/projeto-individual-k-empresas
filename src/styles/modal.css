@@ -1,0 +1,83 @@
+.modal {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: appearFromTopLeft 1s;
+    background-color: rgba(0, 0, 0, 0.342);
+}
+
+.modal > form {
+    width: 80%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: 20px;
+    background-color: var(--color-white-1);
+    border-radius: 8px;
+    box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.05);
+    max-height: 70%;
+}
+
+.divFormSignup {
+    display: flex;
+    justify-content: space-between;
+}
+
+.disappear {
+    animation: disappearToTopLeft 1s;
+}
+
+.modalPostContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.modalPostContainer button {
+    position: absolute;
+    right: 1;
+}
+
+.modalPostContainer .container__suggestedUser {
+    margin: 0;
+}
+
+
+
+@media (min-width: 1024px) {
+    .modal form {
+        width: 30%;
+    }
+}
+/*  ANIMAÇÕES MODAL */
+
+@keyframes appearFromTopLeft {
+    0% {
+        opacity: 0;
+        transform: translate(-30%, -30%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes disappearToTopLeft {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-30%, -30%);
+    }
+}

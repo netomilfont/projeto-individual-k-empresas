@@ -1,0 +1,11 @@
+button {
+    border: none;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    background-color: blue;
+    font-size: 0.7rem;
+    color: var(--color-white-1);
+    border-radius: 3px;
+    font-family: 'Nunito', sans-serif;
+
+}
