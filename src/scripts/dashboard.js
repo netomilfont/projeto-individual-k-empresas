@@ -85,6 +85,21 @@ export default class Dashboard {
 
         return li
     }
+
+    static showModalEdit(data) {
+        const btnEdit = document.querySelector("#editPerfilBtn")
+        const modal = document.querySelector(".modal")
+        const inputName = document.querySelector("#username")
+        const inputEmail = document.querySelector("#email")
+
+        btnEdit.addEventListener("click", (event) => {
+            event.preventDefault()
+            modal.classList.remove("hidden")
+
+            inputName.value = data.username
+            inputEmail.value = data.email
+        })
+    }
 }
 
 const employees = await Requests.employessSameDepartment()
@@ -93,3 +108,7 @@ Dashboard.listEmployees(employees)
 const departments = await Requests.userDepartment()
 Dashboard.listDepartment(departments)
 Dashboard.listCompany(departments)
+Dashboard.showModalEdit()
+
+const user = await Requests.getUserLogged()
+Dashboard.showModalEdit(user)

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../styles/dashboard.css">
     <link rel="stylesheet" href="../styles/button.css">
     <link rel="stylesheet" href="../styles/text.css">
+    <link rel="stylesheet" href="../styles/modal.css">
 
     <!--  JS  -->
     <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -45,6 +46,20 @@
         <ul class="container__employees">
 
         </ul>
+    </section>
+    <section class="modal hidden">
+        <form action="">
+            <div class="container__editar">
+                <h3>Editar</h3>
+                <button>x</button>
+            </div>
+            <div class="container__editUser">
+                <input type="text" name="" id="username" placeholder="Digite seu novo nome aqui">
+                <input type="email" name="" id="email" placeholder="Digite seu novo email aqui">
+                <input type="password" name="" id="password" placeholder="Digite sua nova senha aqui">
+            </div>
+            <button type="submit">Editar</button>
+        </form>
     </section>
 </body>
 </html>

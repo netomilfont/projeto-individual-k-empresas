@@ -99,9 +99,5 @@ export class Modal {
         modalForm.append(divForm, inputName, inputEmail, inputPassword, inputJob, btnRegister, spanLogin, btnLogin)
     
         return modalForm
-    } 
-
-    static showModal() {
-        const modal = document.querySelector("btnOpenPost")
     }
 }

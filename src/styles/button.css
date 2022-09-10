@@ -7,5 +7,5 @@ button {
     color: var(--color-white-1);
     border-radius: 3px;
     font-family: 'Nunito', sans-serif;
-
+    cursor: pointer;
 }

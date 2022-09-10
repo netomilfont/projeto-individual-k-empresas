@@ -68,7 +68,7 @@ export class Requests {
 
     static async employessSameDepartment() {
         const employees = await instance
-        .get("departments/coworkers")
+        .get("users/departments/coworkers")
         .then((res) => res.data)
         .catch((err) => console.log(err))
 
@@ -77,10 +77,19 @@ export class Requests {
 
     static async userDepartment() {
         const department = await instance
-        .get("departments")
+        .get("users/departments")
         .then((res) => res.data)
         .catch((err) => console.log(err))
 
         return department
+    }
+    
+    static async getUserLogged() {
+        const user = await instance
+        .get("users/profile")
+        .then((res) => console.log(res))
+        .catch((err) => (console.log(err)))
+
+        return user
     }
 }
