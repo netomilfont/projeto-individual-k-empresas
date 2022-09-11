@@ -17,7 +17,7 @@ export class Requests {
         .get("companies")
         .then((res) => res.data)
         .catch((err) => console.log(err))
-
+        console.log(companies)
         return companies
     }
 
@@ -105,5 +105,14 @@ export class Requests {
         .catch((err) => (console.log(err)))
 
         return user
+    }
+
+    static async registerCompany(data) {
+        const registerComp = await instance
+        .post("companies", data)
+        .then((res) => res.data)
+        .catch((err) => console.log(err))
+
+        return registerComp
     }
 }
