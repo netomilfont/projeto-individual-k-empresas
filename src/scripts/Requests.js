@@ -3,6 +3,15 @@ import { Toast } from "./toastify.js";
 
 export class Requests {
 
+    static async getAllSectores () {
+        const sectores = await instance
+        .get("sectors")
+        .then((res) => res.data)
+        .catch((err) => console.log(err))
+
+        return sectores
+    }
+
     static async getAllCompanies () {
         const companies = await instance
         .get("companies")
@@ -16,13 +25,18 @@ export class Requests {
         const login = await instance
         .post("auth/login", data)
         .then((res) => {
+            console.log(res)
             localStorage.setItem("@kenzieEmpresa:user_Id", res.data.uuid)
             localStorage.setItem("@kenzieEmpresa:token", res.data.token)
 
             Toast.create("Login realizado com sucesso", "#4263EB")
 
             setTimeout(() => {
-                window.location.replace("src/pages/dashboard.html")
+                if(res.data.is_admin) {
+                    window.location.replace("src/pages/dashboardAdmin.html")
+                } else {
+                    window.location.replace("src/pages/dashboard.html")
+                }
             }, 900)
         })
         .catch((err) => {
