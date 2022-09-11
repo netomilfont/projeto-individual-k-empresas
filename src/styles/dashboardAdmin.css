@@ -37,6 +37,7 @@ section {
     overflow-x: auto;
     height: 40px;
     padding: 20px;
+    margin-bottom: 20px;
 }
 
 section .container__sectors li {
@@ -46,4 +47,15 @@ section .container__sectors li {
     background-color: rgb(58, 58, 247);
     color: var(--color-white-1);
     border-radius: 5px;
+}
+
+.container__registerCompany {
+    padding: 20px;
+}
+
+.container__registerCompany form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: 10px;
 }
