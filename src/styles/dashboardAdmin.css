@@ -44,7 +44,7 @@ section .container__sectors li {
     padding: 5px 10px;
     display: flex;
     align-items: center;
-    background-color: rgb(58, 58, 247);
+    background-color: blue;
     color: var(--color-white-1);
     border-radius: 5px;
 }
@@ -66,18 +66,33 @@ section .container__sectors li {
     margin-bottom: 20px;
 }
 
-.container_allComnanies {
-    display: flex;
+.container_allCompanies {
+    display: flex;  
     flex-direction: column;
     align-items: center;
 }
 
-.container_allComnanies div {
+.container_allCompanies .divCompany {
     padding: 10px;
     background-color: rgb(245, 245, 245);
     margin-bottom: 20px;
     border-radius: 5px;
-    width: 50%;
+    width: 90%;
+}
+
+.companyDep {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    margin-bottom: 0;
+}
+
+.companyDep div {
+    background-color: var(--color-white-1);
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 200px;
+    margin-bottom: 0px;
 }
 
 .container__companiesAdmin  form{
@@ -95,4 +110,16 @@ section .container__sectors li {
 
 select {
     overflow-y: auto;
+}
+
+.container__departmentCompany {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.container__departmentCompany select {
+    width: 90%;
+    margin: 0 auto;
 }

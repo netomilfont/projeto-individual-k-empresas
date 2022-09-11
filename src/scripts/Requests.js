@@ -110,7 +110,33 @@ export class Requests {
     static async registerCompany(data) {
         const registerComp = await instance
         .post("companies", data)
+        .then((res) =>  {
+            window.location.replace("../pages/dashboardAdmin.html")
+
+            return res.data
+        })
+        .catch((err) => console.log(err))
+
+        return registerComp
+    }
+
+    static async listDepartmentCompany(id) {
+        const departments = await instance
+        .get(`departments/${id}`)
         .then((res) => res.data)
+        .catch((err) => console.log(err))
+
+        return departments
+    }
+
+    static async registerDepartment(data) {
+        const registerComp = await instance
+        .post("departments", data)
+        .then((res) =>  {
+            window.location.replace("../pages/dashboardAdmin.html")
+
+            return res.data
+        })
         .catch((err) => console.log(err))
 
         return registerComp

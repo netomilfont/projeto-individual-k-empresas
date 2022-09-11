@@ -9,3 +9,8 @@ button {
     font-family: 'Nunito', sans-serif;
     cursor: pointer;
 }
+
+.container__departmentCompany button {
+    width: 90%;
+    margin: 0 auto;
+}

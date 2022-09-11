@@ -38,10 +38,6 @@
             </div>
         </nav>
     </header>
-    <section>
-        <h3>Setores</h3>
-        <ul class="container__sectors"></ul>
-    </section>
     <section class="container__registerCompany">
         <h3>Cadastrar Empresa</h3>
         <form action="">
@@ -54,24 +50,50 @@
             <button class="btnRegisterCompany" type="submit">Cadastrar</button>
         </form>
     </section>
+    <section class="container__companiesAdmin">
+        <h3>Listar Empresa Específica</h3>
+        <form action="">
+            <select name="" id="empresasAdmin">
+                <option value="">Seleciona uma empresa...</option>
+            </select>
+            <button class="listCompanySpecific" type="submit">Buscar</button>
+        </form>
+    </section>
+    <section>
+        <h3>Setores</h3>
+        <ul class="container__sectors">
+            <li><h4>Todas</h4></li>
+        </ul>
+    </section>
     <section class="container__adminCompanies">
         <h3>Todas as Empresas</h3>
-        <div class="container_allComnanies">
+        <div class="container_allCompanies">
 
         </div>
     </section>
-    <section class="container__companiesAdmin">
-        <h3>Empresa</h3>
+    <section class ="container__registerCompany">
+        <h3>Departamentos</h3>
         <form action="">
-            <select size="5" name="" id="empresasAdmin">
-                <option value="">Seleciona uma empresa...</option>
-            </select>
-            <button type="submit">Buscar</button>
+            <input type="text" name="" id="nameDepartment" placeholder="Nome do departamento aqui...">
+            <input type="text" name="" id="descriptionDepCompany" placeholder="Descrição do departamento aqui...">
+            <select name="" id="company_options"></select>
+            <button class="btnRegisterDepartment" type="submit">Cadastrar</button>
         </form>
-        <div>
-            <h4>Dep</h4>
-        </div>
     </section>
-    
+    <section class ="container__departmentCompany">
+        <h3>Departamento Específico de uma Empresa</h3>
+        <select name="" id="company_options2">
+            <option value="">Selecione a empresa...</option>
+        </select>
+        <select name="" id="department__options">
+            <option value="">Selecione o departamento...</option>
+        </select>
+        <button class="searchDepartment" type="submit">Buscar</button>
+        <h4>Informações do Departamento</h4>
+        <div class="info__Department">
+
+        </div>
+
+    </section>
 </body>
 </html>

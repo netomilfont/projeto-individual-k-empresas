@@ -148,7 +148,7 @@ export default class Index {
 
         data.forEach((company) => {
             const companyCard = Index.createCompanies(company)
-
+        
             ul.append(companyCard)
         })
     }
