@@ -17,7 +17,7 @@ export class Requests {
         .get("companies")
         .then((res) => res.data)
         .catch((err) => console.log(err))
-        console.log(companies)
+
         return companies
     }
 
@@ -111,11 +111,17 @@ export class Requests {
         const registerComp = await instance
         .post("companies", data)
         .then((res) =>  {
-            window.location.replace("../pages/dashboardAdmin.html")
+            Toast.create("Empresa cadastrada com sucesso!", "#4263EB")
+
+            setTimeout( async () => {  
+                window.location.replace("../pages/dashboardAdmin.html")
+            }, 900)
 
             return res.data
         })
-        .catch((err) => console.log(err))
+        .catch((err) => {
+            Toast.create("A empresa não foi cadastrada, verifique as informações!" , "red")
+        })
 
         return registerComp
     }

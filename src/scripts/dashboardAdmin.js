@@ -95,23 +95,28 @@ export default class DashboardAdmin {
         const div = document.querySelector(".container_allCompanies")
         
         div.innerText = ""
-        
-        array.forEach(async (element)=> {
-            const idCompany = element.uuid
-            const company = DashboardAdmin.createCompany(element)
 
+        array.forEach(async (element)=> {
+            const idCompany = element.name.split(" ").join("")
+            
+            const company = DashboardAdmin.createCompany(element)
+            
             company.id = idCompany
             div.append(company)
-
-            const departments = await Requests.listDepartmentCompany(idCompany)
             
+            const departments = await Requests.listDepartmentCompany(element.uuid)
             
-            departments.forEach((depart) => {
-                const divDep = document.querySelector(".companyDep")
+            departments.forEach( async (depart) => {
+    
+                const divDep = document.querySelector(`#${company.id} > .companyDep`)
+                divDep.id = idCompany
+                const department = await DashboardAdmin.createDepartment(depart)
+                const joinName = depart.companies.name.split(" ").join("")
 
-                const department = DashboardAdmin.createDepartment(depart)
+                if(joinName == idCompany) {
 
-                    divDep.append(department)
+                    divDep.appendChild(department)
+                }
             })
         })
     }
@@ -130,7 +135,6 @@ export default class DashboardAdmin {
         divCompany.classList.add("divCompany")
         h5Departament.innerText = "Departamentos"
         divDepartment.classList.add("companyDep")
-        divDepartment.id = company.uuid
         h4NameCompany.innerText = company.name
         pBranchActivity.innerText = `Ramo da empresa: ${company.sectors.description}`
         pDescripCompany.innerText = company.description
@@ -142,16 +146,17 @@ export default class DashboardAdmin {
     }
 
     static createDepartment(department) {
-        const div = document.createElement("div")
-        const h5NameDepartment = document.createElement("h5")
-        const pDescriptionDepartment = document.createElement("p")
 
-        h5NameDepartment.innerText = department.name
-        pDescriptionDepartment.innerText = department.description
-
-        div.append(h5NameDepartment, pDescriptionDepartment)
-
-        return div
+            const div = document.createElement("div")
+            const h5NameDepartment = document.createElement("h5")
+            const pDescriptionDepartment = document.createElement("p")
+    
+            h5NameDepartment.innerText = department.name
+            pDescriptionDepartment.innerText = department.description
+    
+            div.append(h5NameDepartment, pDescriptionDepartment)
+    
+            return div
     }
 
     static listBySectorAdmin(array) {
@@ -297,13 +302,11 @@ export default class DashboardAdmin {
             const id = event.target.value
             const idCompany = window.localStorage.getItem("@kenzieEmpresa:company_id")
 
-
-            console.log(id)
             btnSearch.addEventListener("click", async (event) => {
                 event.preventDefault()
                 
                 const departments = await Requests.listDepartmentCompany(idCompany)
-                console.log(departments)
+            
                 const department = departments.filter(element => element.uuid == idCompany && id == element.uuid)
                 DashboardAdmin.listDepartmentSpecific(department)
             })
