@@ -141,4 +141,13 @@ export class Requests {
 
         return registerComp
     }
+
+    static async listNotEmployedUser() {
+        const users = await instance
+        .get("admin/out_of_work")
+        .then((res) => res.data)
+        .catch((err) => console.log(err))
+
+        return users
+    }
 }

@@ -123,3 +123,20 @@ select {
     width: 90%;
     margin: 0 auto;
 }
+
+.container_userNo {
+    overflow-x: auto;
+}
+
+.container__userNotEmployed {
+    display: flex;
+    gap: 20px;
+}
+
+.container__userNotEmployed li {
+    padding: 10px 20px;
+    min-width: 100px;
+    background-color: rgb(245, 245, 245);
+    border-radius: 5px;
+    margin-bottom: 20px;
+}

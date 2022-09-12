@@ -269,7 +269,7 @@ export default class DashboardAdmin {
         const select = document.querySelector("#department__options")
 
         array.forEach((element)=> {
-            const department = DashboardAdmin.createOption(element)
+            const department = DashboardAdmin.createOptionDepartment(element)
 
             select.append(department)
         })
@@ -278,10 +278,12 @@ export default class DashboardAdmin {
 
     static  departmentSpecific() {
         const select = document.querySelector("#company_options2")
+        const select2 = document.querySelector("#department__options")
 
         select.addEventListener("change", async (event) => {
             const id = event.target.value
-
+            select2.innerText =""
+            window.localStorage.setItem("@kenzieEmpresa:company_id", id)
             const departments = await Requests.listDepartmentCompany(id)
             DashboardAdmin.listOptionsDepartments(departments)
         })
@@ -290,22 +292,82 @@ export default class DashboardAdmin {
     static infoDeparmentSpecific() {
         const btnSearch = document.querySelector(".searchDepartment")
         const select = document.querySelector("#department__options")
-        const selectCompany = document.querySelector("#company_options2")
-
-        selectCompany.addEventListener("change", (event) => {
-            const idCompany = event.target.value
-
-        })
         
-        select.addEventListener("change", (event) => {
+        select.addEventListener("click", (event) => {
             const id = event.target.value
+            const idCompany = window.localStorage.getItem("@kenzieEmpresa:company_id")
 
+
+            console.log(id)
             btnSearch.addEventListener("click", async (event) => {
                 event.preventDefault()
-
-                const departments = Requests.listDepartmentCompany(idCompany)
+                
+                const departments = await Requests.listDepartmentCompany(idCompany)
+                console.log(departments)
+                const department = departments.filter(element => element.uuid == idCompany && id == element.uuid)
+                DashboardAdmin.listDepartmentSpecific(department)
             })
         })
+    }
+
+    static listDepartmentSpecific(department) {
+        const div = document.querySelector(".info__Department")
+
+        div.innerText = ""
+
+        department.forEach( (element) => {
+            const infoDepartment = DashboardAdmin.createDepartment(element)
+
+            div.append(infoDepartment)
+        })
+    }
+
+    static createOptionDepartment(sector) {
+        const optionSector = document.createElement("option")
+        
+        optionSector.innerText = sector.name
+        optionSector.value = sector.uuid
+
+        return optionSector
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    static listUsersNotEmployed(array) {
+        const ul = document.querySelector(".container__userNotEmployed")
+
+        ul.innerText = ""
+
+        array.forEach((element) => {
+            const user = DashboardAdmin.createUserNotEmployed(element)
+
+            ul.append(user)
+        })
+    }
+
+    static createUserNotEmployed(user) {
+        const li = document.createElement("li")
+        const h4Username =  document.createElement("h4")
+        const pProfLevel = document.createElement("p")
+        const pKindOfWord = document.createElement("p")
+
+
+        h4Username.innerText = user.username
+        pProfLevel.innerText = user.professional_level
+        pKindOfWord.innerText = user.kind_of_work
+
+        li.append(h4Username, pProfLevel, pKindOfWord)
+
+        return li
     }
 }
 
@@ -323,3 +385,5 @@ DashboardAdmin.registerDepartmentAdmin()
 DashboardAdmin.listOptionsCompaniesTwo(companies)
 DashboardAdmin.departmentSpecific()
 DashboardAdmin.infoDeparmentSpecific()
+const usersNotEmployed = await Requests.listNotEmployedUser()
+DashboardAdmin.listUsersNotEmployed(usersNotEmployed)
