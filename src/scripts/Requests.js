@@ -231,6 +231,10 @@ export class Requests {
         .patch(`admin/update_user/${id}`, data)
         .then((res) => {
             Toast.create("Funcionário editado com sucesso!", "#4263EB")
+
+            setTimeout( async () => {  
+                window.location.replace("../pages/dashboardAdmin.html")
+            }, 900)
             
             return res.data
         })
