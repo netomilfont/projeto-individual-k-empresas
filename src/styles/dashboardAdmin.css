@@ -126,6 +126,7 @@ select {
 
 .container_userNo {
     overflow-x: auto;
+    margin-bottom: 20px;
 }
 
 .container__userNotEmployed {
