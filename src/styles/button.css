@@ -21,3 +21,10 @@ button {
     margin: 10px 0 20px 0;
     text-align: center;
 }
+
+@media (min-width: 1024px) {
+    button:hover {
+        background-color: black;
+        color: var(--color-white-1);
+    }
+}

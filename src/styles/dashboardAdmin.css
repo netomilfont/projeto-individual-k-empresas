@@ -165,3 +165,11 @@ select {
     gap: 20px;
     justify-content: center;
 }
+
+@media (min-width: 1024px) {
+    .container__sectors li:hover {
+        background-color: black;
+        color: var(--color-white-1);
+        cursor: pointer;
+    }
+}
