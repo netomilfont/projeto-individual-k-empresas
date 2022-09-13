@@ -49,7 +49,14 @@
     margin: 0;
 }
 
+.container__editar {
+    display: flex;
+    justify-content: space-between;
+}
 
+.hidden {
+    display: none;
+}
 
 @media (min-width: 1024px) {
     .modal form {

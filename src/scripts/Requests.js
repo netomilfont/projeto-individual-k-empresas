@@ -3,6 +3,15 @@ import { Toast } from "./toastify.js";
 
 export class Requests {
 
+    static async getAllSectores () {
+        const sectores = await instance
+        .get("sectors")
+        .then((res) => res.data)
+        .catch((err) => console.log(err))
+
+        return sectores
+    }
+
     static async getAllCompanies () {
         const companies = await instance
         .get("companies")
@@ -16,13 +25,18 @@ export class Requests {
         const login = await instance
         .post("auth/login", data)
         .then((res) => {
-            localStorage.setItem("@kenzieEmpresa:user_Id", res.data.token)
-            localStorage.setItem("@kenzieEmpresa:token", res.data.uuid)
+            console.log(res)
+            localStorage.setItem("@kenzieEmpresa:user_Id", res.data.uuid)
+            localStorage.setItem("@kenzieEmpresa:token", res.data.token)
 
             Toast.create("Login realizado com sucesso", "#4263EB")
 
             setTimeout(() => {
-                window.location.replace("src/pages/dashboard.html")
+                if(res.data.is_admin) {
+                    window.location.replace("src/pages/dashboardAdmin.html")
+                } else {
+                    window.location.replace("src/pages/dashboard.html")
+                }
             }, 900)
         })
         .catch((err) => {
@@ -55,5 +69,115 @@ export class Requests {
         })
 
         return signup
+    }
+
+    static async companyUser (token) {
+        const userInfo = await instance
+        .get("users/profile")
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err))
+
+        return userInfo
+    }
+
+    static async employessSameDepartment() {
+        const employees = await instance
+        .get("users/departments/coworkers")
+        .then((res) => res.data)
+        .catch((err) => console.log(err))
+
+        return employees
+    }
+
+    static async userDepartment() {
+        const department = await instance
+        .get("users/departments")
+        .then((res) => res.data)
+        .catch((err) => console.log(err))
+
+        return department
+    }
+    
+    static async getUserLogged() {
+        const user = await instance
+        .get("users/profile")
+        .then((res) => console.log(res))
+        .catch((err) => (console.log(err)))
+
+        return user
+    }
+
+    static async registerCompany(data) {
+        const registerComp = await instance
+        .post("companies", data)
+        .then((res) =>  {
+            Toast.create("Empresa cadastrada com sucesso!", "#4263EB")
+
+            setTimeout( async () => {  
+                window.location.replace("../pages/dashboardAdmin.html")
+            }, 900)
+
+            return res.data
+        })
+        .catch((err) => {
+            Toast.create("A empresa não foi cadastrada, verifique as informações!" , "red")
+        })
+
+        return registerComp
+    }
+
+    static async listDepartmentCompany(id) {
+        const departments = await instance
+        .get(`departments/${id}`)
+        .then((res) => res.data)
+        .catch((err) => console.log(err))
+
+        return departments
+    }
+
+    static async registerDepartment(data) {
+        const registerComp = await instance
+        .post("departments", data)
+        .then((res) =>  {
+            window.location.replace("../pages/dashboardAdmin.html")
+
+            return res.data
+        })
+        .catch((err) => console.log(err))
+
+        return registerComp
+    }
+
+    static async listNotEmployedUser() {
+        const users = await instance
+        .get("admin/out_of_work")
+        .then((res) => res.data)
+        .catch((err) => console.log(err))
+
+        return users
+    }
+
+    static async listAllUsers() {
+        const users = await instance
+        .get("users")
+        .then((res) => res.data)
+        .catch((err) => console.log(err))
+
+        return users
+    }
+
+    static async hireUserDepartment(data) {
+        const hireUser = await instance
+        .patch("departments/hire/", data)
+        .then((res) => {
+            Toast.create("O usuário foi contrato com sucesso!", "4263EB")
+
+            return res.data
+        })
+        .catch((err) => {
+            Toast.create("Usuário não foi contrato, verificar informações", "red")
+        })
+
+        return hireUser
     }
 }

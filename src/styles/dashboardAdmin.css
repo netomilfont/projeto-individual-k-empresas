@@ -1,0 +1,149 @@
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+header {
+    max-width: 100vw;
+    padding: 10px;
+    background-color: var(--color-white-1);
+    height: 60px;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.39);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.container__logo {
+    margin-left: 10px;
+}
+
+section {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.container__sectors {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow-x: auto;
+    height: 40px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+section .container__sectors li {
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    background-color: blue;
+    color: var(--color-white-1);
+    border-radius: 5px;
+}
+
+.container__registerCompany {
+    box-sizing: border-box;
+}
+
+.container__registerCompany form {
+    padding: 0px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 10px;
+    margin: 0 auto;
+}
+
+.container__adminCompanies h3 {
+    margin-bottom: 20px;
+}
+
+.container_allCompanies {
+    display: flex;  
+    flex-direction: column;
+    align-items: center;
+}
+
+.container_allCompanies .divCompany {
+    padding: 10px;
+    background-color: rgb(245, 245, 245);
+    margin-bottom: 20px;
+    border-radius: 5px;
+    width: 90%;
+}
+
+.companyDep {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    margin-bottom: 0;
+}
+
+.companyDep div {
+    background-color: var(--color-white-1);
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 200px;
+    margin-bottom: 0px;
+}
+
+.container__companiesAdmin  form{
+    padding: 0px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 10px;
+    margin: 0 auto;
+}
+
+.container__companiesAdmin form select {
+    overflow-x: auto;
+}
+
+select {
+    overflow-y: auto;
+}
+
+.container__departmentCompany {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.container__departmentCompany select {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.container_userNo {
+    overflow-x: auto;
+}
+
+.container__userNotEmployed {
+    display: flex;
+    gap: 20px;
+}
+
+.container__userNotEmployed li {
+    padding: 10px 20px;
+    min-width: 100px;
+    background-color: rgb(245, 245, 245);
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.container_withoutJob {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 8px;
+}

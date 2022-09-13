@@ -2,13 +2,6 @@ import { Modal } from "./Modal.js"
 import { Requests } from "./Requests.js"
 
 export default class Index {
-    static renderIndex() {
-        const token = localStorage.getItem("@kenzieSocial:token")
-
-        if(!token && window.location.href == "http://127.0.0.1:5500/src/pages/dashboard.html") {
-            window.location.replace("../../index.html")
-        } 
-    }
 
     static handleLoginModal() {
         const loginBtn = document.querySelector("#loginBtn")
@@ -76,8 +69,9 @@ export default class Index {
                 email: userEmail.value,
                 password: userPassword.value                
             }
-            
+
             const login = await Requests.login(data)
+
         })
 
     }
@@ -148,7 +142,7 @@ export default class Index {
 
         data.forEach((company) => {
             const companyCard = Index.createCompanies(company)
-
+        
             ul.append(companyCard)
         })
     }
@@ -198,7 +192,7 @@ export default class Index {
 }
 
 
-Index.renderIndex()
+
 Index.handleLoginModal()
 Index.handleSignupModal()
 
