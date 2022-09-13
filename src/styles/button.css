@@ -14,3 +14,10 @@ button {
     width: 90%;
     margin: 0 auto;
 }
+
+.container__editDepartment button {
+    width: 20%;
+    padding: 5px;
+    margin: 10px 0 20px 0;
+    text-align: center;
+}

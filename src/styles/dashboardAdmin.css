@@ -148,3 +148,20 @@ select {
     width: 90%;
     gap: 8px;
 }
+
+.container__departmentCompany .container__editDepartment{
+    display: flex;
+    margin: 0 auto;
+}
+
+.container__editDepartment {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.container__editDepartment div {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}

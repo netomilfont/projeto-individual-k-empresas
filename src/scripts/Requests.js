@@ -210,4 +210,19 @@ export class Requests {
             Toast.create("Não foi possível editar o departamento", "red")
         })
     }
+
+    static async deleteDepartment(id) {
+        const delDepartment = await instance
+        .delete(`departments/${id}`)
+        .then((res) => {
+            Toast.create("Departamento deletado com sucesso!", "#4263EB")
+
+            return res.data
+        })
+        .catch((err) => {
+            Toast.create("Departamento não foi deletado", "red")
+        })
+
+        return delDepartment
+    }
 }
