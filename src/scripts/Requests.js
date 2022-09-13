@@ -185,7 +185,7 @@ export class Requests {
         const fireUser = await instance
         .patch(`departments/dismiss/${id}`)
         .then((res) => {
-            Toast.create("O usuário foi demitido!", "4263EB")
+            Toast.create("O usuário foi demitido!", "#4263EB")
 
             return res.data
         })
@@ -196,5 +196,18 @@ export class Requests {
         })
 
         return fireUser
+    }
+
+    static async editDepartment(id, data) {
+        const edit = await instance
+        .patch(`departments/${id}`, data)
+        .then((res) => {
+            Toast.create("O departamento foi editado", "#4263EB")
+
+            return res.data
+        })
+        .catch((err) => {
+            Toast.create("Não foi possível editar o departamento", "red")
+        })
     }
 }

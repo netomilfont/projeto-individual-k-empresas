@@ -297,19 +297,41 @@ export default class DashboardAdmin {
     static infoDeparmentSpecific() {
         const btnSearch = document.querySelector(".searchDepartment")
         const select = document.querySelector("#department__options")
-        
+        const inputDescription = document.querySelector(".departDescription")
+
         select.addEventListener("click", (event) => {
             const id = event.target.value
             const idCompany = window.localStorage.getItem("@kenzieEmpresa:company_id")
 
             btnSearch.addEventListener("click", async (event) => {
                 event.preventDefault()
-                
+                console.log("oi")
                 const departments = await Requests.listDepartmentCompany(idCompany)
             
-                const department = departments.filter(element => element.uuid == idCompany && id == element.uuid)
+                const department = await departments.filter(element => element.uuid == id)
                 DashboardAdmin.listDepartmentSpecific(department)
+
+                inputDescription.value = department[0].description
+                inputDescription.id = id
+
             })
+
+            
+        })
+    }
+    
+    static editSpecificDepartment() {
+        const inputDescription = document.querySelector(".departDescription")
+        const btnEdit = document.querySelector(".btnEditDepartment")
+
+        btnEdit.addEventListener("click", async (event) => {
+            event.preventDefault()
+    
+            const data = {
+                description: inputDescription.value
+            }
+    
+            const editDep = await Requests.editDepartment(inputDescription.id, data)
         })
     }
 
@@ -333,16 +355,6 @@ export default class DashboardAdmin {
 
         return optionSector
     }
-
-
-
-
-
-
-
-
-
-
 
     static listUsersNotEmployed(array) {
         const ul = document.querySelector(".container__userNotEmployed")
@@ -512,6 +524,7 @@ export default class DashboardAdmin {
         })
     }
 
+
 }
 
 const sector = await Requests.getAllSectores()
@@ -532,3 +545,4 @@ const usersNotEmployed = await Requests.listNotEmployedUser()
 DashboardAdmin.listUsersNotEmployed(usersNotEmployed)
 DashboardAdmin.listCompaniesSelect(companies)
 DashboardAdmin.listCompaniesSelectFire(companies)
+DashboardAdmin.editSpecificDepartment()
