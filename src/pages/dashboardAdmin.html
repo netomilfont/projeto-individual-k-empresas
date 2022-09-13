@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- TOASTIFY -->
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    
+    <!--  JS  -->
+    <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" defer src="../scripts/dashboardAdmin.js"></script>
+    <script type= "module" defer src="../scripts/Modal.js"></script>
+
+    <!--  CSS  -->
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/dashboardAdmin.css">
+    <link rel="stylesheet" href="../styles/modal.css">
+    <link rel="stylesheet" href="../styles/text.css">
+    <link rel="stylesheet" href="../styles/button.css">
+
+    <title>Dashboard: Administrador</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container__logo">
+                <span>K</span>
+                <h1>EMPRESAS</h1>
+            </div>
+            <div class="container__buttons">
+                <button id="logoutBtn" type="submit">Sair</button>
+            </div>
+        </nav>
+    </header>
+    <section class="container__registerCompany">
+        <h3>Cadastrar Empresa</h3>
+        <form action="">
+            <input type="text" name="" id="nameCompany" placeholder="Nome da empresa aqui...">
+            <input type="text" name="" id="hourCompany" placeholder="Hora da empresa aqui...">
+            <input type="text" name="" id="descriptionCompany" placeholder="Descrição da empresa aqui...">
+            <select name="" id="sectors_options">
+                <option value="">Selecione um setor...</option>
+            </select>
+            <button class="btnRegisterCompany" type="submit">Cadastrar</button>
+        </form>
+    </section>
+    <section class="container__companiesAdmin">
+        <h3>Listar Empresa Específica</h3>
+        <form action="">
+            <select name="" id="empresasAdmin">
+                <option value="">Seleciona uma empresa...</option>
+            </select>
+            <button class="listCompanySpecific" type="submit">Buscar</button>
+        </form>
+    </section>
+    <section>
+        <h3>Setores</h3>
+        <ul class="container__sectors">
+            <li><h4>Todas</h4></li>
+        </ul>
+    </section>
+    <section class="container__adminCompanies">
+        <h3>Todas as Empresas</h3>
+        <div class="container_allCompanies">
+
+        </div>
+    </section>
+    <section class ="container__registerCompany">
+        <h3> Cadastrar Departamentos</h3>
+        <form action="">
+            <input type="text" name="" id="nameDepartment" placeholder="Nome do departamento aqui...">
+            <input type="text" name="" id="descriptionDepCompany" placeholder="Descrição do departamento aqui...">
+            <select name="" id="company_options"></select>
+            <button class="btnRegisterDepartment" type="submit">Cadastrar</button>
+        </form>
+    </section>
+    <section class ="container__departmentCompany">
+        <h3>Informações Gerais da Empresa</h3>
+        <div class="container_allInfoDepartment">
+            <select name="" id="company_options2">
+                <option value="">Selecione a empresa...</option>
+            </select>
+            <select name="" id="department__options">
+                <option value="">Selecione o departamento...</option>
+            </select>
+            <button class="searchDepartment" type="submit">Buscar</button>
+            
+            
+            <h4>Editar/Deletar departamento</h4>
+            <div class="container__editDepartment">
+                <input class="departDescription" type="text" placeholder="Descrição do departamento aqui...">
+                <div>
+                    <button class="btnEditDepartment" type="submit">Editar</button>
+                    <button class="btnDeleteDepartment" type="submit">Deletar</button>
+                </div>
+            </div>
+            <h4>Informações do Departamento</h4>
+            <div class="info__Department"></div>
+            <div class="container__allUsersDepartment">
+                <h4>Funcionários</h4>
+                <ul class="container_allUsers">
+    
+                </ul>
+            </div>
+            <div class="container__userEditDelete">
+                <h4>Editar/Deletar Funcionário</h4>
+                <select name="" id="users_department">
+                    <option value="">Selecione um usuário...</option>
+                </select>
+                <select name="" id="kindOfWork">
+                    <option value="home office">Home office</option>
+                    <option value="hibrido">Presencial</option>
+                    <option value="presencial">Hibrido</option>
+                </select>
+                <select name="" id="profLevel">
+                    <option value="sênior">Senior</option>
+                    <option value="pleno">Pleno</option>
+                    <option value="júnior">Junior</option>
+                    <option value="estágio">Estagiario</option>
+                </select>
+                <div class="container__btnEditDelete">
+                    <button class="editUserBtn" type="submit">Editar</button>
+                    <button class="deleteUserBtn" type="submit">Deletar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container_userNo">
+        <h3>Usuários não contratados</h3>
+        <ul class="container__userNotEmployed">
+        </ul>
+    </section>
+    <section class="container_withoutJob">
+        <h3>Contratar Funcionário</h3>
+        <select name="" id="companies">Selecione a empresa...
+            <option value="">Selecione a empresa...</option>
+        </select>
+        <select name="" id="departments">
+            <option value="">Selecione um departamento...</option>
+        </select>
+        <select name="" id="users__notEmployed">
+            <option value="">Selecione um usuário...</option>
+        </select>
+        <div>
+            <button type="submit" class="btnHireUser">Contratar</button>
+        </div>
+        <h3>Demitir Funcionário</h3>
+        <select name="" id="companiesFire">Selecione a empresa...
+            <option value="">Selecione a empresa...</option>
+        </select>
+        <select name="" id="departmentsFire">
+            <option value="">Selecione um departamento...</option>
+        </select>
+        <select name="" id="users__employed">
+            <option value="">Selecione um usuário...</option>
+        </select>
+        <div>
+            <button type="submit" class="btnFireUser">Demitir</button>
+        </div>
+    </section>
+    <section>
+    </section>
+</body>
+</html>

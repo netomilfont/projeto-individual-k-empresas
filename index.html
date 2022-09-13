@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- TOASTIFY -->
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <!--  JS  -->
+    <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" defer src="src/scripts/Index.js"></script>
+    <script type= "module" defer src="src/scripts/Modal.js"></script>
+
+    <!--  CSS  -->
+    <link rel="stylesheet" href="./src/styles/reset.css">
+    <link rel="stylesheet" href="./src/styles/global.css">
+    <link rel="stylesheet" href="src/styles/index.css">
+    <link rel="stylesheet" href="./src/styles/text.css">
+    <link rel="stylesheet" href="./src/styles/button.css">
+    <link rel="stylesheet" href="./src/styles/modal.css">
+
+    <title>KENZIE EMPRESAS</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container__logo">
+                <span>K</span>
+                <h1>EMPRESAS</h1>
+            </div>
+            <div class="container__buttons">
+                <button id="loginBtn" type="submit">Login</button>
+                <button id="signupBtn" type="submit">Registro</button>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <ul class="container__sectores">
+            <li>Todas</li>
+            <li>Alimentícias</li>
+            <li>Automotivo</li>
+            <li>TI</li>
+        </ul>
+    </section>
+    <section class="container__allCompanies">
+        <ul class="container__companies"></ul>
+    </section>
+</body>
+</html>

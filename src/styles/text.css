@@ -1,0 +1,116 @@
+h1 {
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+h3 {
+    color: var(--color-black-1);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+h4 {
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+h5 {
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 0.8rem;
+    margin-bottom: 10 px;
+}
+
+span {
+    color: rgb(0, 0, 255);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-black-1);
+    font-weight: 600;
+}
+
+.container__adminCompanies h3 {
+    margin-bottom: 20px;
+}
+
+.spanCadastro {
+    font-size: 0.7rem;
+    text-align: center;
+    color: var(--color-black-1);
+}
+
+.container__companies h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.container__companies span {
+    display: block;
+    font-size: 0.7rem;
+    margin-bottom: 3px;
+}
+
+.container__companies .spanDescription {
+    color: var(--color-black-1);
+    margin-top: 12px;
+}
+
+.container__companyUser h4 {
+    font-weight: 700;
+}
+
+.container__companyDepart H4 {
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.container__registerCompany h3{
+    margin-bottom: 20px;
+}
+
+.container__companiesAdmin h3{
+    margin-bottom: 20px;
+}
+
+.container_allCompanies div h4 {
+    font-size: 1.3rem;
+}
+
+.container_allCompanies h5 {
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.companyDep h5 {
+    font-weight: 700;
+    margin-top: 0;
+}
+
+.container_userNo h3 {
+    margin-bottom: 20px;
+}
+
+.container__userNotEmployed li p {
+    margin-bottom: 5px;
+}
+
+.container_withoutJob  h3 {
+    margin-bottom: 20px;
+}
+.info__Department h5 {
+    font-weight: 700;
+}
+
+
+@media (min-width: 1024px) {
+    a {
+        cursor: pointer;
+        color: var(--color-blue-1);
+    }
+}

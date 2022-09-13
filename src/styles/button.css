@@ -1,0 +1,123 @@
+button {
+    border: none;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    background-color: var(--color-blue-1);
+    font-size: 0.7rem;
+    color: var(--color-white-1);
+    border-radius: 3px;
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+    border: 1px solid var(--color-black-1);
+}
+
+.btnRegisterCompany {
+    width: 35%;
+}
+
+.listCompanySpecific {
+    width: 35%;
+}
+
+.btnRegisterDepartment {
+    width: 45%;
+}
+
+.container__departmentCompany button {
+    margin: 0 auto;
+}
+
+.container__editDepartment button {
+    width: 45%;
+    padding: 5px;
+    margin: 10px 0 20px 0;
+    text-align: center;
+}
+
+.btnHireUser {
+    margin-bottom: 30px;
+}
+
+.btnFireUser {
+    margin-bottom: 20px;
+}
+
+.editUserBtn {
+    width: 40%;
+}
+
+.deleteUserBtn {
+    width: 44%;
+}
+
+.btnDeleteDepartment {
+    background-color: var(--color-red-1);
+    border: 1px solid var(--color-black-1);
+}
+
+.deleteUserBtn {
+    background-color: var(--color-red-1);
+    border: 1px solid var(--color-black-1);
+}
+
+@media (min-width: 1024px) {
+
+    button {
+        width: 10%;
+    }
+
+    button:hover {
+        background-color: var(--color-black-1);
+        color: var(--color-white-1);
+    }
+
+    .btnRegisterCompany {
+        width: 10%;
+    }
+    
+    .listCompanySpecific {
+        width: 10%;
+    }
+    
+    .btnRegisterDepartment {
+        width: 10%;
+    }
+
+    #logoutBtn{
+        width: 100%;
+    }
+
+    .container__editDepartment button {
+        width: 45%;
+    }
+
+    .container__buttons {
+        display: flex;
+        gap: 20px;
+    }
+
+    #editPerfilBtn {
+        width: 100%;
+        min-width: 80px;
+    }
+
+    .editPerfilBtnModal button {
+        width: 15%;
+    }
+
+    #loginBtn {
+        width: 37%;
+    }
+
+    #signupBtn {
+        width: 44%;
+    }
+
+    .btnRegister {
+        width: 100%;
+    }
+
+    .btnLogin {
+        width: 20%;
+    }
+}
