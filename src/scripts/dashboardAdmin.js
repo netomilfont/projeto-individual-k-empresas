@@ -375,7 +375,6 @@ export default class DashboardAdmin {
             const users = await Requests.listAllUsers()
         
             const usersSpecific = users.filter((element) => element.department_uuid == inputDescription.id)
-            console.log(usersSpecific)
 
             ul.innerText = ""
 
@@ -425,8 +424,24 @@ export default class DashboardAdmin {
                     kind_of_work: inputKindOfWork.value,
                     professional_level: inputProfLevel.value
                 }
-                console.log(data)
+
                 const userEdit = await Requests.editUser(id, data)
+            })
+        })
+    }
+
+    static deleteUser() {
+        const select = document.querySelector("#users_department")
+        const deleteUserBtn = document.querySelector(".deleteUserBtn")
+
+        select.addEventListener("change", async (event) => {
+            const id = event.target.value
+            console.log(id)
+
+            deleteUserBtn.addEventListener("click", async (event) => {
+                event.preventDefault()
+
+                const userDelete = await Requests.deleteUser(id)
             })
         })
     }
@@ -599,7 +614,20 @@ export default class DashboardAdmin {
         })
     }
 
+    static logout() {
+        const btnLogout = document.querySelector("#logoutBtn")
 
+        btnLogout.addEventListener("click", (event) => {
+            event.preventDefault()
+
+            localStorage.removeItem("@kenzieEmpresa:token")
+            localStorage.removeItem("@kenzieEmpresa:user_Id")
+            localStorage.removeItem("@kenzieEmpresa:company_id")
+    
+            window.location.assign("../../index.html")
+            
+        })
+    }
 }
 
 const sector = await Requests.getAllSectores()
@@ -624,3 +652,5 @@ DashboardAdmin.editSpecificDepartment()
 DashboardAdmin.deleteSpecificDepartment()
 DashboardAdmin.listUsersDepartmentSpecific()
 DashboardAdmin.editUser()
+DashboardAdmin.deleteUser()
+DashboardAdmin.logout()

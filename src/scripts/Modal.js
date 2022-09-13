@@ -22,7 +22,7 @@ export class Modal {
 
         divForm.classList.add("divFormSignup")
         h3TitleForm.innerText = "Login"
-        btnBack.innerText = "Voltar"
+        btnBack.innerText = "x"
         btnBack.classList.add("backSignupOne")
         span.innerText = "Ainda não possui cadastro?"
         span.classList.add("spanCadastro")
@@ -65,7 +65,7 @@ export class Modal {
     
         divForm.classList.add("divFormSignup")
         h3TitleForm.innerText = "Cadastro"
-        btnBack.innerText = "Voltar"
+        btnBack.innerText = "x"
         btnBack.classList.add("backSignupOne")
         inputName.placeholder = "Seu nome"
         inputName.type = "text"

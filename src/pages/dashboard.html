@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
+    <!-- TOASTIFY -->
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
    <!--  CSS  -->
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/global.css">
@@ -33,6 +38,8 @@
             </div>
         </nav>
     </header>
+    <section class="container__infoUserLogged">
+    </section>
     <section>
         <h3>Empresa</h3>
         <ul class="container__companyUser"></ul>
@@ -47,7 +54,7 @@
 
         </ul>
     </section>
-    <section class="modal hidden">
+    <section class="modal hidden editPerfilBtnModal">
         <form action="">
             <div class="container__editar">
                 <h3>Editar</h3>
@@ -58,7 +65,7 @@
                 <input type="email" name="" id="email" placeholder="Digite seu novo email aqui">
                 <input type="password" name="" id="password" placeholder="Digite sua nova senha aqui">
             </div>
-            <button type="submit">Editar</button>
+            <button class="btnEdit" type="submit">Editar</button>
         </form>
     </section>
 </body>

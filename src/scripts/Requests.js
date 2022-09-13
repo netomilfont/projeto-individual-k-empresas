@@ -71,10 +71,10 @@ export class Requests {
         return signup
     }
 
-    static async companyUser (token) {
+    static async companyUser () {
         const userInfo = await instance
         .get("users/profile")
-        .then((res) => console.log(res))
+        .then((res) => res.data)
         .catch((err) => console.log(err))
 
         return userInfo
@@ -101,10 +101,29 @@ export class Requests {
     static async getUserLogged() {
         const user = await instance
         .get("users/profile")
-        .then((res) => console.log(res))
+        .then((res) => res.data)
         .catch((err) => (console.log(err)))
 
         return user
+    }
+
+    static async editUserLoggedInfo(data) {
+        const edit = await instance
+        .patch("users", data)
+        .then((res) => {
+            Toast.create("Usuário editado!", "4263EB")
+
+            setTimeout( async () => {  
+                window.location.replace("../pages/dashboard.html")
+            }, 900)
+
+            return res.data
+        })
+        .catch((err) => {
+            Toast.create("Usuário não foi editado!", "red")
+        })
+
+        return edit
     }
 
     static async registerCompany(data) {
@@ -204,6 +223,10 @@ export class Requests {
         .then((res) => {
             Toast.create("O departamento foi editado", "#4263EB")
 
+            setTimeout( async () => {  
+                window.location.replace("../pages/dashboardAdmin.html")
+            }, 900)
+
             return res.data
         })
         .catch((err) => {
@@ -243,5 +266,21 @@ export class Requests {
         })
 
         return editUser
+    }
+
+    static async deleteUser(id) {
+        const userDel = await instance
+        .delete(`admin/delete_user/${id}`)
+        .then((res) => {
+            Toast.create("Usuário deletado com sucesso", "#4263EB")
+
+            return res.data
+        })
+        .catch((err) => {
+            console.log(err)
+            Toast.create("O usuário não foi deletado!", "red")
+        })
+
+        return userDel
     }
 }
