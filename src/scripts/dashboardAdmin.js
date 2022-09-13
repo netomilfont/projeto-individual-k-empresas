@@ -436,7 +436,6 @@ export default class DashboardAdmin {
 
         select.addEventListener("change", async (event) => {
             const id = event.target.value
-            console.log(id)
 
             deleteUserBtn.addEventListener("click", async (event) => {
                 event.preventDefault()
