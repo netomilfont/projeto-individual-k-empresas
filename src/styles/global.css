@@ -3,6 +3,10 @@
 :root {
     --color-black-1: #000000;
     --color-white-1: #FFFFFF;
+    --color-grey-1: #f5f5f5;
+    --color-blue-1: #0000ff;
+    --color-red-1: #f82c2c;
+    
 }
 
 body {

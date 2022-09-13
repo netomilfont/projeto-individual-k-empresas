@@ -32,7 +32,7 @@ section {
 
 .container__companyDepart li {
     padding: 20px;
-    background-color: rgb(245, 245, 245);
+    background-color: var(--color-grey-1);
     border-radius: 8px;
     margin: 20px 0;
     box-shadow: 1px 3px 1px rgba(0, 0, 0, 0.151);
@@ -42,7 +42,7 @@ section {
     padding: 20px;
     box-shadow: 1px 3px 1px rgba(0, 0, 0, 0.151);
     margin: 20px 0;
-    background-color: rgb(245, 245, 245);
+    background-color: var(--color-grey-1);
     border-radius: 8px;
 }
 
@@ -50,6 +50,6 @@ section {
     padding: 20px;
     box-shadow: 1px 3px 1px rgba(0, 0, 0, 0.151);
     margin: 20px 0;
-    background-color: rgb(245, 245, 245);
+    background-color: var(--color-grey-1);
     border-radius: 8px;
 }

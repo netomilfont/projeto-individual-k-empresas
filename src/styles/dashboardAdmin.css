@@ -44,13 +44,14 @@ section .container__sectors li {
     padding: 5px 10px;
     display: flex;
     align-items: center;
-    background-color: blue;
+    background-color: var(--color-blue-1);
     color: var(--color-white-1);
     border-radius: 5px;
 }
 
 .container__registerCompany {
     box-sizing: border-box;
+    margin-bottom: 50px;
 }
 
 .container__registerCompany form {
@@ -62,8 +63,8 @@ section .container__sectors li {
     margin: 0 auto;
 }
 
-.container__adminCompanies h3 {
-    margin-bottom: 20px;
+.container__adminCompanies {
+    margin-bottom: 50px;
 }
 
 .container_allCompanies {
@@ -74,7 +75,7 @@ section .container__sectors li {
 
 .container_allCompanies .divCompany {
     padding: 10px;
-    background-color: rgb(245, 245, 245);
+    background-color: var(--color-grey-1);
     margin-bottom: 20px;
     border-radius: 5px;
     width: 90%;
@@ -110,6 +111,19 @@ section .container__sectors li {
 
 select {
     overflow-y: auto;
+    padding: 4px;
+}
+
+input {
+    padding: 4px;
+    font-family: 'Nunito', sans-serif; ;
+}
+
+.container__userEditDelete {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 .container__departmentCompany {
@@ -117,6 +131,16 @@ select {
     flex-direction: column;
     gap: 10px;
     margin-bottom: 20px;
+    background-color: var(--color-grey-1);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.container__departmentCompany .container_allInfoDepartment{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
 .container__departmentCompany select {
@@ -137,7 +161,7 @@ select {
 .container__userNotEmployed li {
     padding: 10px 20px;
     min-width: 100px;
-    background-color: rgb(245, 245, 245);
+    background-color: var(--color-grey-1);
     border-radius: 5px;
     margin-bottom: 20px;
 }
@@ -152,6 +176,7 @@ select {
 .container__departmentCompany .container__editDepartment{
     display: flex;
     margin: 0 auto;
+    align-items: center;
 }
 
 .container__editDepartment {
@@ -166,10 +191,53 @@ select {
     justify-content: center;
 }
 
+.container__btnEditDelete {
+    display: flex;
+    gap: 20px;
+}
+
+.container__allUsersDepartment {
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_allUsers {
+    display: flex;
+    gap: 20px;
+    padding: 20px 10px;
+    overflow-x: auto;
+    width: 70%;
+}
+
+.container_allUsers li {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: var(--color-white-1);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
 @media (min-width: 1024px) {
+
+    nav {
+        padding: 20px 40px;
+    }
+
     .container__sectors li:hover {
-        background-color: black;
+        background-color: var(--color-black-1);
         color: var(--color-white-1);
         cursor: pointer;
+    }
+
+    select {
+        width: 30%;
+    }
+
+    input {
+        width: 29%;
     }
 }

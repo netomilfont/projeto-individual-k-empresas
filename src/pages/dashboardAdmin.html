@@ -33,7 +33,6 @@
                 <h1>EMPRESAS</h1>
             </div>
             <div class="container__buttons">
-                <button id="editPerfilBtn">Edit Perfil</button>
                 <button id="logoutBtn" type="submit">Sair</button>
             </div>
         </nav>
@@ -81,50 +80,54 @@
         </form>
     </section>
     <section class ="container__departmentCompany">
-        <h3>Departamento Específico de uma Empresa</h3>
-        <select name="" id="company_options2">
-            <option value="">Selecione a empresa...</option>
-        </select>
-        <select name="" id="department__options">
-            <option value="">Selecione o departamento...</option>
-        </select>
-        <button class="searchDepartment" type="submit">Buscar</button>
-        
-        
-        <h4>Editar/Deletar departamento</h4>
-        <div class="container__editDepartment">
-            <input class="departDescription" type="text" placeholder="Descrição do departamento aqui...">
-            <div>
-                <button class="btnEditDepartment" type="submit">Editar</button>
-                <button class="btnDeleteDepartment" type="submit">Deletar</button>
+        <h3>Informações Gerais da Empresa</h3>
+        <div class="container_allInfoDepartment">
+            <select name="" id="company_options2">
+                <option value="">Selecione a empresa...</option>
+            </select>
+            <select name="" id="department__options">
+                <option value="">Selecione o departamento...</option>
+            </select>
+            <button class="searchDepartment" type="submit">Buscar</button>
+            
+            
+            <h4>Editar/Deletar departamento</h4>
+            <div class="container__editDepartment">
+                <input class="departDescription" type="text" placeholder="Descrição do departamento aqui...">
+                <div>
+                    <button class="btnEditDepartment" type="submit">Editar</button>
+                    <button class="btnDeleteDepartment" type="submit">Deletar</button>
+                </div>
             </div>
-        </div>
-        <h4>Informações do Departamento</h4>
-        <div class="info__Department"></div>
-        <div>
-            <h4>Funcionários</h4>
-            <ul class="container_allUsers">
-
-            </ul>
-        </div>
-        <div>
-            <h4>Editar/Deletar Funcionário</h4>
-            <select name="" id="users_department">
-                <option value="">Selecione um usuário...</option>
-            </select>
-            <select name="" id="kindOfWork">
-                <option value="home office">Home office</option>
-                <option value="hibrido">Presencial</option>
-                <option value="presencial">Hibrido</option>
-            </select>
-            <select name="" id="profLevel">
-                <option value="sênior">Senior</option>
-                <option value="pleno">Pleno</option>
-                <option value="júnior">Junior</option>
-                <option value="estágio">Estagiario</option>
-            </select>
-            <button class="editUserBtn" type="submit">Editar</button>
-            <button class="deleteUserBtn" type="submit">Deletar</button>
+            <h4>Informações do Departamento</h4>
+            <div class="info__Department"></div>
+            <div class="container__allUsersDepartment">
+                <h4>Funcionários</h4>
+                <ul class="container_allUsers">
+    
+                </ul>
+            </div>
+            <div class="container__userEditDelete">
+                <h4>Editar/Deletar Funcionário</h4>
+                <select name="" id="users_department">
+                    <option value="">Selecione um usuário...</option>
+                </select>
+                <select name="" id="kindOfWork">
+                    <option value="home office">Home office</option>
+                    <option value="hibrido">Presencial</option>
+                    <option value="presencial">Hibrido</option>
+                </select>
+                <select name="" id="profLevel">
+                    <option value="sênior">Senior</option>
+                    <option value="pleno">Pleno</option>
+                    <option value="júnior">Junior</option>
+                    <option value="estágio">Estagiario</option>
+                </select>
+                <div class="container__btnEditDelete">
+                    <button class="editUserBtn" type="submit">Editar</button>
+                    <button class="deleteUserBtn" type="submit">Deletar</button>
+                </div>
+            </div>
         </div>
     </section>
     <section class="container_userNo">

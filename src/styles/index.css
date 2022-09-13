@@ -45,7 +45,7 @@ ul li {
 }
 
 .container__sectores li:hover{
-    color: blue;
+    color: var(--color-blue-1);
 }
 
 .container__buttons {
