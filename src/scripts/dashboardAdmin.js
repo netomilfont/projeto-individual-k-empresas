@@ -278,7 +278,6 @@ export default class DashboardAdmin {
 
             select.append(department)
         })
-
     }
 
     static  departmentSpecific() {
@@ -305,7 +304,7 @@ export default class DashboardAdmin {
 
             btnSearch.addEventListener("click", async (event) => {
                 event.preventDefault()
-                console.log("oi")
+                
                 const departments = await Requests.listDepartmentCompany(idCompany)
             
                 const department = await departments.filter(element => element.uuid == id)
@@ -363,6 +362,54 @@ export default class DashboardAdmin {
         optionSector.value = sector.uuid
 
         return optionSector
+    }
+
+    static listUsersDepartmentSpecific() {
+        const inputDescription = document.querySelector(".departDescription")
+        const ul = document.querySelector(".container_allUsers")
+        const btnSearch = document.querySelector(".searchDepartment")
+        const selectUsers = document.querySelector("#users_department")
+
+        btnSearch.addEventListener("click", async (event) => {
+
+            const users = await Requests.listAllUsers()
+        
+            const usersSpecific = users.filter((element) => element.department_uuid == inputDescription.id)
+            console.log(usersSpecific)
+
+            ul.innerText = ""
+
+            usersSpecific.forEach(async (element) => {
+
+                const usersDep = await DashboardAdmin.createUserSpecificdDepartment(element)
+
+                ul.append(usersDep)
+            })
+
+            usersSpecific.forEach(async (element) => {
+                
+                selectUsers. innerText = ""
+
+                const usersDepSpecific = await DashboardAdmin.createOptionUsers(element)
+
+                selectUsers.append(usersDepSpecific)  
+            })
+        })
+    }
+
+    static createUserSpecificdDepartment(user) {
+        const li = document.createElement("li")
+        const h4Username =  document.createElement("h4")
+        const pProfLevel = document.createElement("p")
+        const pKindOfWord = document.createElement("p")
+
+        h4Username.innerText = user.username
+        pProfLevel.innerText = user.professional_level
+        pKindOfWord.innerText = user.kind_of_work
+
+        li.append(h4Username, pProfLevel, pKindOfWord)
+
+        return li
     }
 
     static listUsersNotEmployed(array) {
@@ -556,3 +603,4 @@ DashboardAdmin.listCompaniesSelect(companies)
 DashboardAdmin.listCompaniesSelectFire(companies)
 DashboardAdmin.editSpecificDepartment()
 DashboardAdmin.deleteSpecificDepartment()
+DashboardAdmin.listUsersDepartmentSpecific()
