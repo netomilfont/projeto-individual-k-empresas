@@ -375,7 +375,7 @@ export default class DashboardAdmin {
 
     static createOptionUsers(user) {
         const optionUser = document.createElement("option")
-        console.log(user)
+    
         optionUser.innerText = user.username
         optionUser.value = user.uuid
 
@@ -406,8 +406,7 @@ export default class DashboardAdmin {
             selectDep. addEventListener("change", async (event) => {
                 const idDep = event.target.value
 
-                console.log(idDep)
-                const users = await Requests.listNotEmployedUser()
+                const users = await Requests.listAllUsers()
 
                 DashboardAdmin.listUsersSelect(users)
 
@@ -424,6 +423,49 @@ export default class DashboardAdmin {
 
                         const hireUser = await Requests.hireUserDepartment(data)
 
+                    })
+                })
+            })  
+        })
+    }
+
+    static listCompaniesSelectFire(array) {
+        const select = document.querySelector("#companiesFire")
+        const selectDep = document.querySelector("#departmentsFire")
+        const selectUsers = document.querySelector("#users__employed")
+        const btnFire = document.querySelector(".btnFireUser")
+        
+        select.innerText = ""
+
+        array.forEach((element)=> {
+            const company = DashboardAdmin.createCompanyOption(element)
+
+            select.append(company)
+        })
+
+        select.addEventListener("change", async (event) => {
+            const id = event.target.value
+
+            const departments = await Requests.listDepartmentCompany(id)
+
+            DashboardAdmin.listDepartmentSelectFire(departments)
+
+            selectDep. addEventListener("change", async (event) => {
+                const idDep = event.target.value
+
+                const users = await Requests.listAllUsers()
+                const usersEmployed = users.filter((element) => element.department_uuid == idDep)
+
+                DashboardAdmin.listUsersSelectFire(usersEmployed)
+
+                selectUsers.addEventListener("change", (event) => {
+                    const userId = event.target.value
+
+
+                    btnFire.addEventListener("click", async (event) => {
+                        event.preventDefault()
+
+                        const fireUser = await Requests.fireUserDepartment(userId)
                     })
                 })
             })  
@@ -450,6 +492,25 @@ export default class DashboardAdmin {
         })
     }
 
+    static listDepartmentSelectFire(array) {
+        const select = document.querySelector("#departmentsFire")
+
+        array.forEach((element) => {
+            const departament = DashboardAdmin.createOptionDepartment(element)
+
+            select.append(departament)
+        })
+    }
+
+    static listUsersSelectFire(array) {
+        const select = document.querySelector("#users__employed")
+
+        array.forEach((element) => {
+            const user = DashboardAdmin.createOptionUsers(element)
+            
+            select.append(user)
+        })
+    }
 
 }
 
@@ -470,3 +531,4 @@ DashboardAdmin.infoDeparmentSpecific()
 const usersNotEmployed = await Requests.listNotEmployedUser()
 DashboardAdmin.listUsersNotEmployed(usersNotEmployed)
 DashboardAdmin.listCompaniesSelect(companies)
+DashboardAdmin.listCompaniesSelectFire(companies)

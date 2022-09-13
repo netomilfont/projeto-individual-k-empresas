@@ -180,4 +180,21 @@ export class Requests {
 
         return hireUser
     }
+
+    static async fireUserDepartment(id) {
+        const fireUser = await instance
+        .patch(`departments/dismiss/${id}`)
+        .then((res) => {
+            Toast.create("O usuário foi demitido!", "4263EB")
+
+            return res.data
+        })
+        .catch((err) => {
+
+            Toast.create("Usuário não foi demitido, verificar informações", "red")
+            console.log(err)
+        })
+
+        return fireUser
+    }
 }
