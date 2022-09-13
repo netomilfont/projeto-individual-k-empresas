@@ -387,6 +387,7 @@ export default class DashboardAdmin {
         const selectDep = document.querySelector("#departments")
         const selectUsers = document.querySelector("#users__notEmployed")
         const btnHire = document.querySelector(".btnHireUser")
+        const btnFire = document.querySelector(".btnFireUser")
 
         select.innerText = ""
 
@@ -425,6 +426,12 @@ export default class DashboardAdmin {
                         const hireUser = await Requests.hireUserDepartment(data)
 
                     })
+
+                    btnFire.addEventListener("click", async (event)) => {
+                        event.preventDefault()
+
+                        const fireUser = await Requests.fireUserDepartment(userId)
+                    }
                 })
             })  
         })
