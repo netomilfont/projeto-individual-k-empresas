@@ -156,4 +156,28 @@ export class Requests {
 
         return users
     }
+
+    static async listAllUsers() {
+        const users = await instance
+        .get("users")
+        .then((res) => res.data)
+        .catch((err) => console.log(err))
+
+        return users
+    }
+
+    static async hireUserDepartment(data) {
+        const hireUser = await instance
+        .patch("departments/hire/", data)
+        .then((res) => {
+            Toast.create("O usuário foi contrato com sucesso!", "4263EB")
+
+            return res.data
+        })
+        .catch((err) => {
+            Toast.create("Usuário não foi contrato, verificar informações", "red")
+        })
+
+        return hireUser
+    }
 }

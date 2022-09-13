@@ -96,6 +96,10 @@ a {
     margin-bottom: 5px;
 }
 
+.container_withoutJob  h3 {
+    margin-bottom: 20px;
+}
+
 
 @media (min-width: 1024px) {
     a {

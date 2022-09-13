@@ -344,15 +344,15 @@ export default class DashboardAdmin {
 
 
 
-
     static listUsersNotEmployed(array) {
         const ul = document.querySelector(".container__userNotEmployed")
 
         ul.innerText = ""
 
         array.forEach((element) => {
-            const user = DashboardAdmin.createUserNotEmployed(element)
 
+            const user = DashboardAdmin.createUserNotEmployed(element)
+            user.id = element.uuid
             ul.append(user)
         })
     }
@@ -372,6 +372,85 @@ export default class DashboardAdmin {
 
         return li
     }
+
+    static createOptionUsers(user) {
+        const optionUser = document.createElement("option")
+        console.log(user)
+        optionUser.innerText = user.username
+        optionUser.value = user.uuid
+
+        return optionUser
+    }
+
+    static listCompaniesSelect(array) {
+        const select = document.querySelector("#companies")
+        const selectDep = document.querySelector("#departments")
+        const selectUsers = document.querySelector("#users__notEmployed")
+        const btnHire = document.querySelector(".btnHireUser")
+
+        select.innerText = ""
+
+        array.forEach((element)=> {
+            const company = DashboardAdmin.createCompanyOption(element)
+
+            select.append(company)
+        })
+
+        select.addEventListener("change", async (event) => {
+            const id = event.target.value
+
+            const departments = await Requests.listDepartmentCompany(id)
+
+            DashboardAdmin.listDepartmentSelect(departments)
+
+            selectDep. addEventListener("change", async (event) => {
+                const idDep = event.target.value
+
+                console.log(idDep)
+                const users = await Requests.listNotEmployedUser()
+
+                DashboardAdmin.listUsersSelect(users)
+
+                selectUsers.addEventListener("change", (event) => {
+                    const userId = event.target.value
+
+                    btnHire.addEventListener("click", async (event) => {
+                        event.preventDefault()
+
+                        const data = {
+                            user_uuid: userId,
+                            department_uuid: idDep
+                        }
+
+                        const hireUser = await Requests.hireUserDepartment(data)
+
+                    })
+                })
+            })  
+        })
+    }
+
+    static listDepartmentSelect(array) {
+        const select = document.querySelector("#departments")
+
+        array.forEach((element)=> {
+            const departament = DashboardAdmin.createOptionDepartment(element)
+
+            select.append(departament)
+        })
+    }
+
+    static listUsersSelect(array) {
+        const select = document.querySelector("#users__notEmployed")
+
+        array.forEach((element) => {
+            const user = DashboardAdmin.createOptionUsers(element)
+            
+            select.append(user)
+        })
+    }
+
+
 }
 
 const sector = await Requests.getAllSectores()
@@ -390,3 +469,4 @@ DashboardAdmin.departmentSpecific()
 DashboardAdmin.infoDeparmentSpecific()
 const usersNotEmployed = await Requests.listNotEmployedUser()
 DashboardAdmin.listUsersNotEmployed(usersNotEmployed)
+DashboardAdmin.listCompaniesSelect(companies)
