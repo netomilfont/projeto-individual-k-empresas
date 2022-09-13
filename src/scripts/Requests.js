@@ -225,4 +225,23 @@ export class Requests {
 
         return delDepartment
     }
+
+    static async editUser(id, data) {
+        const editUser = await instance
+        .patch(`admin/update_user/${id}`, data)
+        .then((res) => {
+            Toast.create("Funcionário editado com sucesso!", "#4263EB")
+
+            setTimeout( async () => {  
+                window.location.replace("../pages/dashboardAdmin.html")
+            }, 900)
+            
+            return res.data
+        })
+        .catch((err) => {
+            Toast.create("Funcionário não foi editado!", "red")
+        })
+
+        return editUser
+    }
 }

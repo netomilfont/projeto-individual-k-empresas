@@ -387,8 +387,6 @@ export default class DashboardAdmin {
             })
 
             usersSpecific.forEach(async (element) => {
-                
-                selectUsers. innerText = ""
 
                 const usersDepSpecific = await DashboardAdmin.createOptionUsers(element)
 
@@ -410,6 +408,27 @@ export default class DashboardAdmin {
         li.append(h4Username, pProfLevel, pKindOfWord)
 
         return li
+    }
+
+    static editUser() {
+        const select = document.querySelector("#users_department")
+        const inputKindOfWork = document.querySelector("#kindOfWork")
+        const inputProfLevel = document.querySelector("#profLevel")
+        const editUserBtn = document.querySelector(".editUserBtn")
+
+        select.addEventListener("change", async (event) => {
+            const id = event.target.value
+            editUserBtn.addEventListener("click", async (event) => {
+                event.preventDefault()
+    
+                const data = {
+                    kind_of_work: inputKindOfWork.value,
+                    professional_level: inputProfLevel.value
+                }
+                console.log(data)
+                const userEdit = await Requests.editUser(id, data)
+            })
+        })
     }
 
     static listUsersNotEmployed(array) {
@@ -604,3 +623,4 @@ DashboardAdmin.listCompaniesSelectFire(companies)
 DashboardAdmin.editSpecificDepartment()
 DashboardAdmin.deleteSpecificDepartment()
 DashboardAdmin.listUsersDepartmentSpecific()
+DashboardAdmin.editUser()
