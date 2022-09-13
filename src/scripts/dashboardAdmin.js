@@ -314,9 +314,7 @@ export default class DashboardAdmin {
                 inputDescription.value = department[0].description
                 inputDescription.id = id
 
-            })
-
-            
+            })  
         })
     }
     
@@ -332,6 +330,17 @@ export default class DashboardAdmin {
             }
     
             const editDep = await Requests.editDepartment(inputDescription.id, data)
+        })
+    }
+
+    static deleteSpecificDepartment() {
+        const inputDescription = document.querySelector(".departDescription")
+        const btnDelete = document.querySelector(".btnDeleteDepartment")
+
+        btnDelete.addEventListener("click", async (event) => {
+            event.preventDefault()
+
+            const deletDep = await Requests.deleteDepartment(inputDescription.id)
         })
     }
 
@@ -546,3 +555,4 @@ DashboardAdmin.listUsersNotEmployed(usersNotEmployed)
 DashboardAdmin.listCompaniesSelect(companies)
 DashboardAdmin.listCompaniesSelectFire(companies)
 DashboardAdmin.editSpecificDepartment()
+DashboardAdmin.deleteSpecificDepartment()
