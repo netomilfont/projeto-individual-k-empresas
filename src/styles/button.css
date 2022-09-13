@@ -90,4 +90,34 @@ button {
     .container__editDepartment button {
         width: 45%;
     }
+
+    .container__buttons {
+        display: flex;
+        gap: 20px;
+    }
+
+    #editPerfilBtn {
+        width: 100%;
+        min-width: 80px;
+    }
+
+    .editPerfilBtnModal button {
+        width: 15%;
+    }
+
+    #loginBtn {
+        width: 37%;
+    }
+
+    #signupBtn {
+        width: 44%;
+    }
+
+    .btnRegister {
+        width: 100%;
+    }
+
+    .btnLogin {
+        width: 20%;
+    }
 }
