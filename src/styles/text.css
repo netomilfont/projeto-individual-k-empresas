@@ -35,6 +35,10 @@ a {
     font-weight: 600;
 }
 
+.container__adminCompanies h3 {
+    margin-bottom: 20px;
+}
+
 .spanCadastro {
     font-size: 0.7rem;
     text-align: center;
@@ -99,11 +103,14 @@ a {
 .container_withoutJob  h3 {
     margin-bottom: 20px;
 }
+.info__Department h5 {
+    font-weight: 700;
+}
 
 
 @media (min-width: 1024px) {
     a {
         cursor: pointer;
-        color: blue;
+        color: var(--color-blue-1);
     }
 }
